@@ -115,7 +115,7 @@ currently_building: "A self-hosted multi-agent stack, fine-tuning small language
 # Cloudflare Web Analytics beacon token. PUBLIC by design (it sits in the page HTML), safe in this repo.
 # Get it: Cloudflare dashboard -> Analytics & Logs -> Web Analytics -> Add a site (cv.oteelab.org) -> copy the token.
 # Empty = no beacon emitted.
-analytics_token: ""
+analytics_token: "ed5c352c447148448906a57e8d82cb37"
 
 # LinkedIn copy is generated from here into docs/linkedin.md (paste-ready, char counts checked).
 # Redline the headline/about tone below; experience + skills are assembled from the data above.
