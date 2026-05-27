@@ -22,7 +22,7 @@ profile: >
   model through to architecture and commercials. Alongside that I design, build and run agentic
   AI systems, both at work and on my own: multi-agent orchestration, MCP tool servers, retrieval
   pipelines, and a self-hosted agent runtime that runs in production on my own infrastructure.
-  I also fine-tune small language models on a single local GPU, to understand the stack from the
+  I also fine-tune small language models on my local GPU, to understand the stack from the
   weights up rather than only from the slide deck. Most architects at my level stopped touching
   the keyboard years ago. I didn't.
 
@@ -111,6 +111,11 @@ languages:
   - Romanian (native)
 
 currently_building: "A self-hosted multi-agent stack, fine-tuning small language models on my own GPU, and applying Ralph-style agent loops to targeted use cases."
+
+# Cloudflare Web Analytics beacon token. PUBLIC by design (it sits in the page HTML), safe in this repo.
+# Get it: Cloudflare dashboard -> Analytics & Logs -> Web Analytics -> Add a site (cv.oteelab.org) -> copy the token.
+# Empty = no beacon emitted.
+analytics_token: ""
 
 # LinkedIn copy is generated from here into docs/linkedin.md (paste-ready, char counts checked).
 # Redline the headline/about tone below; experience + skills are assembled from the data above.

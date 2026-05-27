@@ -19,7 +19,7 @@ SITE_URL = f"https://{DOMAIN}"
 
 CV = yaml.safe_load((ROOT / "cv.yaml").read_text(encoding="utf-8"))
 # Optional display fields default to empty so removing a line in cv.yaml never breaks the build.
-for _k in ("availability", "tagline", "certifications_intro", "currently_building"):
+for _k in ("availability", "tagline", "certifications_intro", "currently_building", "analytics_token"):
     CV.setdefault(_k, "")
 e = html.escape
 
@@ -66,10 +66,18 @@ def render_html():
     cert_intro_html = f"<p class='cert-intro'>{e(c['certifications_intro'])}</p>" if c["certifications_intro"] else ""
     kicker_html = f'<span class="mono kicker">{e(c["availability"])}</span>' if c["availability"] else ""
     tagline_html = f'<p class="tagline">{e(c["tagline"])}</p>' if c["tagline"] else ""
+    cf = c.get("analytics_token", "")
+    analytics_html = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+                      'data-cf-beacon=\'{"token": "%s"}\'></script>') % e(cf) if cf else ""
     edu = "".join(f"<li>{e(x)}</li>" for x in c["education"])
     langs = "".join(f'<li class="chip">{e(x)}</li>' for x in c["languages"])
 
     links_nav = "".join(
+        f'<a href="{e(url)}" rel="me noopener" target="_blank">{e(name)}</a>'
+        for name, url in c["links"].items()
+        if name != "Website"
+    )
+    panel_links = "".join(
         f'<a href="{e(url)}" rel="me noopener" target="_blank">{e(name)}</a>'
         for name, url in c["links"].items()
         if name != "Website"
@@ -108,6 +116,7 @@ def render_html():
 <script type="application/ld+json">
 {jsonld_s}
 </script>
+{analytics_html}
 <style>
 :root{{
   --bg:#0c0e11; --bg2:#121519; --ink:#e9e6df; --muted:#9aa0a8;
@@ -130,11 +139,22 @@ body::before{{
 .mono{{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}}
 
 /* hero */
-header.hero{{padding:7vh 0 4vh;border-bottom:1px solid var(--line)}}
+header.hero{{padding:7vh 0 2.2vh;border-bottom:1px solid var(--line)}}
+.hero-grid{{display:flex;flex-wrap:wrap;gap:1.8rem 2.6rem;align-items:flex-start;justify-content:space-between}}
+.hero-main{{flex:1;min-width:300px}}
+.panel{{border:1px solid var(--line);border-radius:6px;background:var(--bg2);padding:1.2rem;min-width:248px;display:flex;flex-direction:column;gap:.55rem;animation:rise .7s .24s both}}
+.panel-meta{{color:var(--muted);font-size:.9rem}}
+.panel-meta b{{color:var(--ink);font-weight:500}}
+.panel-meta a{{color:inherit;text-decoration:none}}
+.panel-meta a:hover{{color:var(--accent)}}
+.panel .btn{{text-align:center;margin-top:.35rem}}
+.panel-row{{display:flex;gap:.5rem}}
+.panel-row a{{flex:1;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:.45rem .3rem;border-radius:3px;transition:.18s}}
+.panel-row a:hover{{border-color:var(--accent);color:var(--accent)}}
 .kicker{{display:block;margin-bottom:1.6rem;animation:rise .7s both}}
 h1{{
-  font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2.8rem,8vw,5.4rem);
-  line-height:.96;letter-spacing:-.02em;color:#fff;animation:rise .7s .06s both;
+  font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2.4rem,9vw,5.4rem);
+  line-height:1.02;letter-spacing:-.02em;color:#fff;animation:rise .7s .06s both;overflow-wrap:break-word;
 }}
 .title{{font-family:"Fraunces",serif;font-weight:400;font-style:italic;font-size:clamp(1.2rem,3vw,1.8rem);color:var(--accent);margin-top:.5rem;animation:rise .7s .12s both}}
 .tagline{{font-size:1.15rem;color:var(--muted);max-width:46ch;margin-top:1rem;animation:rise .7s .18s both}}
@@ -151,7 +171,7 @@ nav.links a:hover,.btn:hover{{border-color:var(--accent);color:var(--accent);tra
 .btn:hover{{background:#ffc845;color:#1a1206}}
 
 /* sections */
-section{{padding:3.2vh 0;border-bottom:1px solid var(--line)}}
+section{{padding:2.8vh 0;border-bottom:1px solid var(--line)}}
 .s-head{{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.3rem}}
 .s-head h2{{font-family:"Fraunces",serif;font-weight:600;font-size:1.9rem;color:#fff;letter-spacing:-.01em}}
 .s-head .num{{font-family:"IBM Plex Mono",monospace;color:var(--accent-dim);font-size:.85rem}}
@@ -197,7 +217,15 @@ footer h2{{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-s
 .foot-links{{display:flex;justify-content:center;flex-wrap:wrap;gap:.9rem}}
 
 @keyframes rise{{from{{opacity:0;transform:translateY(14px)}}to{{opacity:1;transform:none}}}}
-@media(max-width:640px){{.cols{{grid-template-columns:1fr}} .role-dates{{margin-left:0}}}}
+@media(max-width:640px){{
+  html,body{{overflow-x:hidden}}
+  .cols{{grid-template-columns:1fr}}
+  .role-dates{{margin-left:0}}
+  .panel{{width:100%;min-width:0}}
+  .hero-main{{min-width:0;max-width:100%}}
+  .tagline{{font-size:1.05rem;max-width:100%}}
+  p.lead,.role p,ul.clean li,ul.bul li{{max-width:100%}}
+}}
 @media(prefers-reduced-motion:reduce){{*{{animation:none!important}}}}
 
 /* PRINT: clean light A4, compact (~3pp), no dark ink, no chrome */
@@ -232,19 +260,23 @@ footer h2{{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-s
 <div class="wrap">
 
   <header class="hero">
-    {kicker_html}
-    <h1>{e(c['name'])}</h1>
-    <div class="title">{e(c['title'])}</div>
-    {tagline_html}
-    <div class="meta">
-      <span><b>Based in</b> {e(c['location'])}</span>
-      <span><b>Email</b> <a href="mailto:{e(c['email'])}" style="color:inherit">{e(c['email'])}</a></span>
+    <div class="hero-grid">
+      <div class="hero-main">
+        {kicker_html}
+        <h1>{e(c['name'])}</h1>
+        <div class="title">{e(c['title'])}</div>
+        {tagline_html}
+      </div>
+      <aside class="panel">
+        <div class="panel-meta"><b>{e(c['location'])}</b></div>
+        <div class="panel-meta"><a href="mailto:{e(c['email'])}">{e(c['email'])}</a></div>
+        <a class="btn" href="cv.pdf">Download CV (PDF)</a>
+        <div class="panel-row">
+          <a href="cv.docx">Word</a>
+          {panel_links}
+        </div>
+      </aside>
     </div>
-    <nav class="links">
-      {links_nav}
-      <a class="btn" href="cv.pdf">Download PDF</a>
-      <a href="cv.docx">Word version</a>
-    </nav>
   </header>
 
   <section id="profile">
