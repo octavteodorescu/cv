@@ -1,0 +1,55 @@
+name: Build and deploy CV site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python deps
+        run: pip install pyyaml
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+      - name: Render site + sources from cv.yaml
+        run: python3 build.py
+      - name: Generate Word + document HTML (full CV) from cv.md
+        run: |
+          pandoc build/cv.md -o docs/cv.docx
+          pandoc build/cv.md -o build/cv.html --standalone --embed-resources \
+            --css doc.css --metadata pagetitle="Octavian Teodorescu - CV"
+      - name: Generate PDF (full document via Chrome on the runner)
+        run: |
+          CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium-browser)"
+          echo "Using browser: $CHROME"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu \
+            --no-pdf-header-footer \
+            --print-to-pdf="$GITHUB_WORKSPACE/docs/cv.pdf" \
+            "file://$GITHUB_WORKSPACE/build/cv.html"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

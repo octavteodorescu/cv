@@ -1,0 +1,247 @@
+# Single source of truth for every public surface.
+# build.py renders this to: docs/index.html (+ JSON-LD), docs/llms.txt, README.md (profile repo), the CV PDF + Word.
+# Edit here, rebuild, and all surfaces stay in sync.
+# This repo is PUBLIC, so it holds no phone number and no private notes.
+# The phone stays only in the privately-sent .docx CV kept in OneDrive.
+
+name: Octavian Teodorescu
+title: Solution Architect and AI Agent Builder
+tagline: I design enterprise AI and build the agents myself.
+location: Bucharest, Romania
+email: teodorescu.octavian@gmail.com
+
+links:
+  LinkedIn: https://www.linkedin.com/in/octavian-teodorescu-9a77338
+  GitHub: https://github.com/octavteodorescu
+  Website: https://cv.oteelab.org
+
+profile: >
+  Solution architect with 18+ years in enterprise technology, the last few of them spent
+  hands-on building AI. I shape large transformation deals (usually $25-50M) for banking,
+  insurance, energy, manufacturing and life-sciences clients, owning the design from operating
+  model through to architecture and commercials. Alongside that I design, build and run agentic
+  AI systems, both at work and on my own: multi-agent orchestration, MCP tool servers, retrieval
+  pipelines, and a self-hosted agent runtime that runs in production on my own infrastructure.
+  I also fine-tune small language models on a single local GPU, to understand the stack from the
+  weights up rather than only from the slide deck. Most architects at my level stopped touching
+  the keyboard years ago. I didn't.
+
+focus:
+  - "Agentic AI engineering: multi-agent systems, agent harnesses & orchestration, MCP (Model Context Protocol) tool design, RAG and retrieval pipelines, prompt engineering, evals, LLM application design (Anthropic Claude and others)"
+  - "Applied ML, hands-on, started this year (2026) and growing: fine-tuning with LoRA and QLoRA, dataset curation, training and inference loops, model evaluation"
+  - "Enterprise solution architecture: large-deal shaping, reference architectures, operating and delivery model design, transition planning, commercial structuring"
+  - "Cloud and platform engineering: Azure, AWS, GCP, Kubernetes, Terraform, Ansible, CI/CD, IaC, Docker, GitHub, Hybrid Cloud Solutions"
+  - "Service-management heritage: ITSM, AMS, ServiceNow, SIAM, AIOps, intelligent ticket analysis - the operations depth the AI work builds on"
+
+highlights:
+  - "Built and run a self-hosted multi-agent stack on my own NAS: a containerised agent runtime, a custom MCP server exposing 20+ tools, and a daily autonomous intelligence-brief agent with a multi-source ingest pipeline. In real production use, not a weekend prototype."
+  - "Delivered production multi-agent solutions on Copilot Studio and Power Automate, including an intelligent ticket-analysis system built from multiple specialist agents, with a strict data-handling boundary and automated report generation."
+  - "Shaped enterprise transformation solutions across banking, insurance, energy, manufacturing, life sciences, and private equity, with deal values in the $25-50M range."
+  - "Fine-tuned small language models end to end on my own RTX 4070 (QLoRA, axolotl, dataset curation through to inference and adapter merge), to build real depth in the training stack, and am now extending it with Ralph-style agent loops on targeted use cases."
+  - "Cut infrastructure cost by around 25% and deployment time by roughly 70% on a cloud automation programme using IaC, CI/CD, and platform engineering."
+  - "Led private cloud architecture for a major UK bank under strict regulatory and security constraints, reaching 99.9% uptime across a two-year on-site engagement."
+
+experience:
+  - role: AVP, Lead Solutions Architect (Technology Solutions)
+    company: Genpact
+    dates: Nov 2023 - Present
+    summary: >
+      I lead solution architecture on complex transformation deals and own it end-to-end:
+      scope, operating and delivery model, transition, technical architecture, and the
+      commercials underneath. Clients run across automotive financial services, insurance and
+      reinsurance, banking, private equity, energy, life sciences, and beverage manufacturing.
+    bullets:
+      - "Designed and delivered agentic AI solutions for client engagements on Copilot Studio and Power Automate (client-anonymized): a multi-agent ticket-analysis system with a clear data-handling boundary, plus an agent that drafts responses to client RFPs and RFIs from a curated knowledge base."
+      - "Designed enterprise managed-services and application-support solutions covering AMS, ITSM, platform management, service lifecycle, modernisation, and governance."
+      - "Contributed to GCC/BOT and vendor-consolidation models, working across service-tower design, hub strategy, and transition planning."
+      - "Built solution narratives and reference architectures for ServiceNow-centric service management, SIAM, DevSecOps, cloud operations and others."
+  - role: Global Solutions Architect and Technology Leader (Associate Director)
+    company: Kyndryl
+    dates: Aug 2021 - Oct 2023
+    summary: >
+      Led architecture and technical delivery for cloud automation and platform engineering,
+      combining hands-on work with leading a global team.
+    bullets:
+      - "Architected IaC and GitOps automation across Azure and hybrid cloud, integrating Terraform, Ansible, HashiCorp Vault, and CI/CD pipelines."
+      - "Delivered a VMware Tanzu container proof of technology for a Swiss manufacturer, end to end from presales through to implementation."
+      - "Led private cloud architecture for a major UK bank under heavy regulatory and governance constraints, over a two-year on-site engagement."
+      - "Set technical direction and ran delivery for global teams, keeping quality, automation, and stakeholder alignment on track."
+  - role: Team Lead, Senior Cloud Consultant and Technical Leader
+    company: IBM
+    dates: Apr 2007 - Aug 2021
+    summary: >
+      Fourteen years across technical leadership, cloud consulting, solution architecture, and
+      hands-on engineering on global client work. Grew from network and security engineering,
+      through middleware administration, to leading cloud automation teams of 40+ people. Owned
+      design reviews, presales support, costing methodology, hiring, and budgets, while staying
+      hands-on and close to the technology to unblock the team when it mattered.
+    bullets: []
+
+independent:
+  intro: Personal work, built and run on my own infrastructure. Where I keep my hands in the actual engineering.
+  items:
+    - "Self-hosted agent runtime: a containerised harness on my NAS that hosts autonomous agents, fronted by TLS and auth, with a Telegram channel and scheduled jobs. I own it end to end: Docker, networking, reliability."
+    - "Custom MCP server (access to my digital brain): an MCP server I wrote that exposes 20+ tools over my knowledge base (search, read and write, task capture, hygiene, tiered session-context priming), reachable over a Cloudflare tunnel and consumed by several agents and web LLM connectors."
+    - "Autonomous daily intelligence brief: an agent that ingests video transcripts, social posts, newsletters, news feeds and other LLM passes, then tiers sources, detects convergence, gates on freshness, and routes work across cheaper and stronger models to keep cost sane. Effectively a small one-person AI product providing inteligent news gathering."
+    - "Multi-agent reasoning pipelines: parallel reconnaissance agents for research, and a gated strategy pipeline that runs an adversarial critic against a hypothesis and labels each claim with a confidence level."
+    - "Model fine-tuning: QLoRA fine-tuning of small language models on my RTX 4070 in WSL using axolotl, dataset curation to JSONL, preprocessing, training, inference, adapter merge, and eval. Ongoing and deliberately hands-on. Next planned step is to apply Ralph Loops to this processes for targeted use cases."
+    - "Self-improving tooling: a skill and agent library with usage telemetry and an automated review loop that flags what to improve, actively nudging me to review when needed."
+
+tech:
+  AI and LLM: ["AI agents", "agentic systems", "multi-agent orchestration", "MCP (Model Context Protocol)", "RAG", "prompt engineering", "evals", "Anthropic Claude", "fine-tuning (LoRA, QLoRA)", "axolotl", "Ralph loop", "Copilot Studio", "Power Automate", "AIOps"]
+  Cloud and infra: ["Azure", "AWS", "GCP", "private and hybrid cloud", "Kubernetes", "Docker", "VMware Tanzu", "Terraform", "Ansible", "HashiCorp Vault", "CI/CD", "GitOps", "Cloudflare", "Tailscale", "nginx", "self-hosting"]
+  Languages: ["Python", "Bash", "SQL", "Go (learning)", "C/C++ and Perl background"]
+  Service management: ["ITSM", "SIAM", "AMS", "ServiceNow", "DevSecOps", "service lifecycle", "L1-L3 operating models"]
+  Architecture: ["reference architectures", "integration patterns", "TOGAF", "service governance", "risk management"]
+
+certifications_intro: "These days I'm mostly self-taught and not chasing certifications, but here are the ones I've earned along the way:"
+certifications:
+  - Google Cloud Professional Cloud Architect
+  - AWS Certified Cloud Practitioner
+  - Certified Kubernetes Administrator (CKA), in progress
+  - TOGAF 9 Certified (and TOGAF 9 Golden Award)
+  - Multiple IBM certifications (WebSphere, MQ, AIX, SOA), CCNA, ITIL
+
+education:
+  - "Faculty of Economic Cybernetics, Statistics and Informatics, Academy of Economic Studies, Bucharest (2002-2006)"
+  - "Virgil Madgearu College, Finance and Accountancy (1998-2002)"
+
+languages:
+  - English (advanced)
+  - Romanian (native)
+
+currently_building: "A self-hosted multi-agent stack, fine-tuning small language models on my own GPU, and applying Ralph-style agent loops to targeted use cases."
+
+# LinkedIn copy is generated from here into docs/linkedin.md (paste-ready, char counts checked).
+# Redline the headline/about tone below; experience + skills are assembled from the data above.
+linkedin:
+  headline: "AI Agent Builder & Lead Solution Architect | LLM apps, multi-agent systems, MCP, RAG | I design enterprise AI and ship the agents myself | Python, Cloud"
+  about: |
+    I'm a solution architect who builds. Eighteen-plus years shaping enterprise technology, and the last few of them building AI agents with my own hands, not just drawing them on slides. I ship and run the agents most architects only diagram.
+
+    By day I shape large transformation deals (often $25-50M) for banks, insurers, energy, manufacturing and life-sciences clients, owning the design from operating model through to architecture and commercials.
+
+    The less common part at my level: I build the AI too. I run a self-hosted multi-agent stack on a NAS in my house. I wrote a custom MCP (Model Context Protocol) server that exposes 20+ tools over my own knowledge base, and several agents plus web LLM connectors use it daily. One of them reads video, social, newsletters and news every morning, tiers the sources, spots convergence, and routes work across cheaper and stronger models to keep cost down. It's basically a tiny one-person AI product.
+
+    That instinct shows up at work too: I've delivered production multi-agent solutions for enterprise clients on Copilot Studio and Power Automate, including a ticket-analysis system built from multiple specialist agents behind a strict data boundary.
+
+    I also fine-tune small language models on a single GPU (QLoRA, axolotl, the full loop from dataset to eval), now extending it with Ralph-style agent loops, because I'd rather understand the stack down to the weights than only from the API.
+
+    If you're building agentic AI and want someone who can both talk to a CIO and open the editor, let's talk.
+
+    Tools: AI agents, agentic AI, multi-agent orchestration, LLMs, MCP, RAG, prompt engineering, evals, Anthropic Claude, fine-tuning (LoRA/QLoRA), Python, Docker, Azure/AWS/GCP, Kubernetes, Terraform, Copilot Studio, Power Automate.
+  # The 5 "skills you want to be known for" (LinkedIn About picker + top of Skills). AI-forward.
+  top_skills:
+    - AI Agents
+    - Large Language Models (LLM)
+    - Multi-Agent Systems
+    - Solution Architecture
+    - Python
+  # Full list for the Skills section (LinkedIn allows up to 50).
+  skills:
+    - Artificial Intelligence (AI)
+    - AI Agents
+    - Large Language Models (LLM)
+    - Multi-Agent Systems
+    - Retrieval-Augmented Generation (RAG)
+    - Prompt Engineering
+    - Model Context Protocol (MCP)
+    - Fine-Tuning
+    - Python
+    - Solution Architecture
+    - Docker
+    - Microsoft Copilot Studio
+    - Power Automate
+    - Cloud Architecture (Azure / AWS / GCP)
+    - Kubernetes
+    - Terraform
+    - Infrastructure as Code (IaC)
+    - ITSM
+    - TOGAF
+    - Technical Leadership
+
+# =====================================================================
+# PART 2 - documents only (PDF + Word). The website renderer ignores
+# every key below; only the CV-document renderer includes them.
+# Source: the full 2026 CV. Redline freely.
+# NOTE: the detailed history names past project clients (Daimler,
+# Vodafone, Canal+, ministries). These will be PUBLIC on the downloadable
+# documents. Decide during redline: keep the names, or anonymize
+# (e.g. "a major automotive manufacturer").
+# =====================================================================
+
+detailed_experience:
+  intro: Detailed descriptions of projects and engagements across my career history.
+  items:
+    - context: "IBM - Team Lead, Senior Cloud Consultant & Technical Leader"
+      detail: "Sponsor and leader for the Cloudbuilder Professional Services Information and Knowledge Management project, organizing the knowledge repository across CBPS work groups (taxonomy, currency, deduplication, ease of use). Participated in strategy definition with IBM senior leaders and drove implementation through the team. Led design and architecture for various clients, reviewed detailed design documents, estimates and proposals before client release, and supported pre-sales on scope, assumptions, risks and dependencies. Created costing methodology and release processes for cloud content services. Team Lead duties: built and ran a motivated team, set goals, led scrums/retrospectives/backlog reviews and reporting for teams of 40+, owned resource budget, billings, hiring and growth, and interviewed candidates worldwide."
+    - context: "IBM - Deployment Program Leader"
+      detail: "Delivered a program orchestrating multiple projects across implementation and deployment services, advanced technical support, and platform management. Owned resource budgets, monthly billings, allocation and hiring, managed escalations and execution, and provided technical direction, mentoring and 1:1s."
+    - context: "IBM - Key Account Customer Advisor (Vodafone)"
+      detail: "Designed the migration strategy and oversaw implementation for a complex evolution of the Subscriber Number Portability platform, increasing stability and performance and incorporating new regulatory and business rules. Managed infrastructure build-up and the middleware products and their configuration throughout the migration."
+    - context: "IBM - IT Support & Administration (developerWorks)"
+      detail: "Architected and implemented new lab platforms (notably Power 5 systems), handled capacity planning and monitoring, UNIX/Linux system administration, and WebSphere/Tivoli application administration (WAS, WPS, IBM HTTP Server, Lotus Connections, ITM), supporting developers' day-to-day and release processes."
+    - context: "IBM - Key Account Implementation (Canal+, France)"
+      detail: "Implementation based on WAS, WPS, WBM and IHS: installation, profile and cluster creation, configuration for business processes and human tasks, updates, verification, and reference documentation."
+    - context: "IBM - Key Account Implementation (eRomania)"
+      detail: "Implementation based on WAS, WPS and IHS: installation, profile and cluster creation, updates, verification and reference documentation."
+    - context: "IBM - Key Account Implementation (Ministry of Internal Affairs, Romania)"
+      detail: "Implementation based on WMQ, MQIPT, WPS, WSRR, WAS and IHS: installation, profile and cluster creation, configuration for business processes and human tasks, interconnecting middleware products, debugging application servers, updates, verification, documentation and training of customer representatives."
+    - context: "IBM - Platform Engineer (Daimler)"
+      detail: "Architected, developed and maintained platforms used in the day-to-day business of worldwide subsidiaries (two platforms per engineer). Translated business to technical requirements, assessed and planned environments, implemented and integrated platforms, packaged updates and patches, and supported client issues with documentation."
+    - context: "IBM - Key Account Implementations (WAS/WPS/DB2)"
+      detail: "Implementation of WAS, WPS and DB2 in key IBM accounts: installation, profile and cluster creation, message-engine configuration, business-process and human-task setup, updates, verification, documentation and customer training."
+    - context: "IBM - Security Compliance Engineer"
+      detail: "Multiple security-compliance engagements across IBM. Kept US-based servers current with security requirements, managed inventory and verification for new/reinstalled systems, prepared systems for internal and external audits, enforced policies, and patched middleware. Developed and supported SwgUpdate, a tool automating patch installation for AIX, Solaris, HP-UX, RedHat, SuSE and Windows, used across Tivoli labs in the USA."
+    - context: "IBM - Local Support Engineer"
+      detail: "Administered and improved local data storage and centralized support, designed and implemented solutions for the GPSG group, handled network support and redesign, and installed/preconfigured Oracle databases, ClearCase, ClearQuest and CVS. Worked across Power 5 (HMC, VIOS, AIX), Itanium (HP-UX), SPARC (Solaris), Linux and Windows; helped build a ticketing system for IBM Romania on IBM Maximo."
+    - context: "IBM - Network Engineer"
+      detail: "Minimized network administration cost, provided centralized management tools and customer network access, administered remote equipment and firewall rules, and helped implement IPv6 across the Tivoli network, supporting the IPv4-to-IPv6 migration."
+    - context: "IBM - Key Account Implementation (Oracle RAC, Ministry of Finance)"
+      detail: "Implementation, back-up/restore policies, optimization, maintenance, support and documentation of Oracle RAC at the Romanian Ministry of Finance, on AIX."
+    - context: "Oracle - Service Analyst"
+      detail: "On-call support, documentation of application errors and root causes for the internal knowledge base, and training of senior operators and the level-1 support team."
+    - context: "Axway - Technical Support Engineer"
+      detail: "Responded within SLA to support requests, created documentation and tested Axway products, maintained environments to reproduce client issues, and worked with development on defect resolution."
+    - context: "Inet Solutions & Services - Network Administrator"
+      detail: "Physical and software network and server administration, client communication and assistance, service delivery, and company administration (economic, finance)."
+    - context: "Carpatia Tour - IT Administrator"
+      detail: "IT asset inventory administration (printers, laptops, desktops, switches, file servers), network and server administration, and day-to-day operating-system and application support."
+
+technical_proficiencies:
+  Operating systems: "BSD, Linux (various: *BSD, SLES, Slackware, Fedora, RedHat, OracleLinux), AIX, HP-UX, Solaris, Windows (various versions and editions)"
+  Programming and scripting: "C/C++, Bash, Ksh, Perl, SQL, UML, XML, Chef DSL, Regex, Go"
+  Databases: "Oracle Enterprise DB, IBM DB2 (various versions and topologies), MySQL"
+  Middleware: "WAS, WPS, WSRR, WMQ, WMB, WP, ILC, ITM, TSM, Sun Directory Server, IBM LDAP/TDS, CA SiteMinder, XFB CFT, XFB Gateway, Sentinel, TIM, TAM, TPM/TPMfOSD, SAN, DS4000, RSA, ClearCase, ClearQuest, RTC, Apache HTTP Server, Tomcat, IBM HTTP Server, Datastax/Cassandra"
+  Tooling and platforms: "Chef, Puppet, IBM Workload Orchestrator, IBM Cloud Manager, PureApplication, OpenStack, IBM Cloud Orchestrator, VMware vRealize Automation/Orchestrator, vCenter, ESXi, KVM, UrbanCode Deploy, Git, GitHub, JIRA, Bitbucket, Confluence, Jenkins, FreeNAS"
+
+courses:
+  - Team Solution Design
+  - Program Management
+  - Managing Project Resources
+  - VMware vRealize Orchestrator
+  - "IBM: Developing Applications for IBM WebSphere Process Server v7"
+  - "IBM: DB2 UDB Administration Workshop for Linux"
+  - "IBM: Administration of WebSphere Application Server v6.1"
+  - "IBM: A technical introduction to WebSphere MQ"
+  - "IBM: WebSphere Message Broker Administration"
+  - "IBM: WebSphere Portal Administration"
+  - "IBM: WebSphere MQ System Administration for AIX"
+  - "IBM: WebServices, WAS scripting using JACL and Jython"
+  - "IBM: Administration of IBM WebSphere Process Server v6.0.2"
+
+certifications_detail:
+  - "2023 - Certified Kubernetes Administrator (CKA), in progress"
+  - "2022 - Google Cloud Professional Cloud Architect"
+  - "2020 - AWS Certified Cloud Practitioner"
+  - "2011 - TOGAF 9 Certified, and TOGAF 9 Golden Award"
+  - "2011 - IBM Certified SOA Associate"
+  - "2011 - IBM Certified System Administrator for SOA Solutions"
+  - "2011 - IBM Certified WebSphere Process Server v7 Deployment"
+  - "2011 - IBM Certified System Administrator, AIX 6.1"
+  - "2011 - IBM Certified System Administrator, WebSphere MQ v7"
+  - "2011 - IBM Certified System Administrator, WAS Network Deployment v7"
+  - "2010 - IBM Certified System Administrator, WAS Network v6.1"
+  - "2007 - IBM internal ITIL certification"
+  - "2006 - CCNA"
+  - "2007 - IBM Romania Award, Best support and infrastructure"

@@ -1,0 +1,27 @@
+/* Print/document styling for the full CV PDF (pandoc HTML -> Chrome print). A4, clean, ATS-friendly. */
+@page { size: A4; margin: 16mm 16mm; }
+* { box-sizing: border-box; }
+body {
+  font-family: "IBM Plex Sans", -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: 10pt; line-height: 1.42; color: #1a1a1a; max-width: none; margin: 0;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23pt; line-height: 1.05; margin: 0 0 2pt; color: #111; letter-spacing: -0.01em;
+}
+/* the title (first bold paragraph) and contact line sit right under h1 */
+h1 + p { font-size: 11.5pt; font-weight: 600; margin: 0 0 1pt; }
+h1 + p + p { font-size: 9pt; color: #444; margin: 0 0 8pt; }
+h2 {
+  font-size: 12.5pt; color: #9a6b00; margin: 13pt 0 5pt;
+  border-bottom: 1px solid #e2c98a; padding-bottom: 2pt; letter-spacing: .01em;
+}
+h3 { font-size: 10.5pt; margin: 8pt 0 1pt; color: #111; }
+h3 + p { margin-top: 1pt; }
+p { margin: 0 0 5pt; }
+ul { margin: 2pt 0 7pt; padding-left: 16pt; }
+li { margin: 0 0 2.5pt; }
+a { color: #1a1a1a; text-decoration: none; }
+strong { color: #111; }
+h2, h3 { break-after: avoid; }
+li, p { break-inside: avoid; }
