@@ -35,7 +35,7 @@ focus:
 
 highlights:
   - "Built and run a self-hosted multi-agent stack on my own NAS: a containerised agent runtime, a custom MCP server exposing 20+ tools, and a daily autonomous intelligence-brief agent with a multi-source ingest pipeline. In real production use, not a weekend prototype."
-  - "Delivered production multi-agent solutions on Copilot Studio and Power Automate, including an intelligent ticket-analysis system built from multiple specialist agents, with a strict data-handling boundary and automated report generation."
+  - "Delivered production multi-agent solutions for enterprise clients, including an intelligent ticket-analysis system built from multiple specialist agents (a Claude-native orchestrator with domain-specific analysis packs), with a strict data-handling boundary and automated report generation."
   - "Shaped enterprise transformation solutions across banking, insurance, energy, manufacturing, life sciences, and private equity, with deal values in the $25-50M range."
   - "Fine-tuned small language models end to end on my own RTX 4070 (QLoRA, axolotl, dataset curation through to inference and adapter merge), to build real depth in the training stack, and am now extending it with Ralph-style agent loops on targeted use cases."
   - "Cut infrastructure cost by around 25% and deployment time by roughly 70% on a cloud automation programme using IaC, CI/CD, and platform engineering."
@@ -51,7 +51,7 @@ experience:
       commercials underneath. Clients run across automotive financial services, insurance and
       reinsurance, banking, private equity, energy, life sciences, and beverage manufacturing.
     bullets:
-      - "Designed and delivered agentic AI solutions for client engagements on Copilot Studio and Power Automate (client-anonymized): a multi-agent ticket-analysis system with a clear data-handling boundary, plus an agent that drafts responses to client RFPs and RFIs from a curated knowledge base."
+      - "Designed and delivered agentic AI solutions for client engagements (client-anonymized): a multi-agent ticket-analysis system that scores operational tickets for automation potential, built as a Claude-native orchestrator with specialist scoring, synthesis and proposal agents and swappable domain packs (end-user computing, application development, cloud infrastructure), behind a strict data-handling boundary; plus an agentic bid-and-pursuit workspace that runs the whole solicitation lifecycle: requirement intake and a compliance matrix, win-theme development, evidence-grounded drafting from a curated knowledge base, red-team evaluator review, and the final response pack, covering both inbound RFPs/RFIs and proactive renewals and expansions. Earlier iterations ran on Copilot Studio and Power Automate."
       - "Designed enterprise managed-services and application-support solutions covering AMS, ITSM, platform management, service lifecycle, modernisation, and governance."
       - "Contributed to GCC/BOT and vendor-consolidation models, working across service-tower design, hub strategy, and transition planning."
       - "Built solution narratives and reference architectures for ServiceNow-centric service management, SIAM, DevSecOps, cloud operations and others."
@@ -82,10 +82,11 @@ independent:
   items:
     - "Self-hosted agent runtime: a containerised harness on my NAS that hosts autonomous agents, fronted by TLS and auth, with a Telegram channel and scheduled jobs. I own it end to end: Docker, networking, reliability."
     - "Custom MCP server (access to my digital brain): an MCP server I wrote that exposes 20+ tools over my knowledge base (search, read and write, task capture, hygiene, tiered session-context priming), reachable over a Cloudflare tunnel and consumed by several agents and web LLM connectors."
-    - "Autonomous daily intelligence brief: an agent that ingests video transcripts, social posts, newsletters, news feeds and other LLM passes, then tiers sources, detects convergence, gates on freshness, and routes work across cheaper and stronger models to keep cost sane. Effectively a small one-person AI product providing inteligent news gathering."
+    - "Autonomous daily intelligence brief: an agent that ingests across four dedicated pipelines (video transcripts, social posts, newsletters, news feeds) plus other LLM passes, then tiers sources, detects convergence, gates on freshness, and routes work across cheaper and stronger models to keep cost sane. Effectively a small one-person AI product providing intelligent news gathering."
     - "Multi-agent reasoning pipelines: parallel reconnaissance agents for research, and a gated strategy pipeline that runs an adversarial critic against a hypothesis and labels each claim with a confidence level."
-    - "Model fine-tuning: QLoRA fine-tuning of small language models on my RTX 4070 in WSL using axolotl, dataset curation to JSONL, preprocessing, training, inference, adapter merge, and eval. Ongoing and deliberately hands-on. Next planned step is to apply Ralph Loops to this processes for targeted use cases."
-    - "Self-improving tooling: a skill and agent library with usage telemetry and an automated review loop that flags what to improve, actively nudging me to review when needed."
+    - "Model fine-tuning: QLoRA fine-tuning of small language models on my RTX 4070 in WSL using axolotl, dataset curation to JSONL, preprocessing, training, inference, adapter merge, and eval. Ongoing and deliberately hands-on. Next planned step is to apply Ralph Loops to these processes for targeted use cases."
+    - "On-device RAG engine: a fully local file-search and retrieval system for my Mac, no cloud calls. A lean custom engine over SQLite with combined vector and full-text search (sqlite-vec and FTS5) and small local models running on Apple Metal. Designed end to end and building it out."
+    - "Self-improving tooling: a library of 30+ skills and agents with usage telemetry and an automated review loop that flags what to improve, actively nudging me to review when needed."
 
 tech:
   AI and LLM: ["AI agents", "agentic systems", "multi-agent orchestration", "MCP (Model Context Protocol)", "RAG", "prompt engineering", "evals", "Anthropic Claude", "fine-tuning (LoRA, QLoRA)", "axolotl", "Ralph loop", "Copilot Studio", "Power Automate", "AIOps"]
@@ -236,7 +237,7 @@ courses:
   - "IBM: Administration of IBM WebSphere Process Server v6.0.2"
 
 certifications_detail:
-  - "2023 - Certified Kubernetes Administrator (CKA), in progress"
+  - "Certified Kubernetes Administrator (CKA), in progress"
   - "2022 - Google Cloud Professional Cloud Architect"
   - "2020 - AWS Certified Cloud Practitioner"
   - "2011 - TOGAF 9 Certified, and TOGAF 9 Golden Award"
