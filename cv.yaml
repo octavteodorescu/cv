@@ -20,24 +20,25 @@ profile: >
   hands-on building AI. I shape large transformation deals (usually $25-50M) for banking,
   insurance, energy, manufacturing and life-sciences clients, owning the design from operating
   model through to architecture and commercials. Alongside that I design, build and run agentic
-  AI systems, both at work and on my own: multi-agent orchestration, MCP tool servers, retrieval
-  pipelines, and a self-hosted agent runtime that runs in production on my own infrastructure.
-  I also fine-tune small language models on my local GPU, to understand the stack from the
-  weights up rather than only from the slide deck. Most architects at my level stopped touching
+  AI systems, both at work and on my own: multi-agent orchestration, MCP tool servers, hybrid
+  search and retrieval, and unattended overnight agent runs. The infrastructure underneath runs
+  on my own hardware at home. I'm also learning the model-training side by doing it, starting
+  with a small fine-tuning run on my own GPU, to understand the stack from the weights up
+  rather than only from the slide deck. Most architects at my level stopped touching
   the keyboard years ago. I didn't.
 
 focus:
   - "Agentic AI engineering: multi-agent systems, agent harnesses & orchestration, MCP (Model Context Protocol) tool design, RAG and retrieval pipelines, prompt engineering, evals, LLM application design (Anthropic Claude and others)"
-  - "Applied ML, hands-on, started this year (2026) and growing: fine-tuning with LoRA and QLoRA, dataset curation, training and inference loops, model evaluation"
+  - "Applied ML, a hands-on learning track I started in 2026: a first QLoRA fine-tuning run, dataset curation, and test sets and checks for the next one (LoRA with MLX)"
   - "Enterprise solution architecture: large-deal shaping, reference architectures, operating and delivery model design, transition planning, commercial structuring"
   - "Cloud and platform engineering: Azure, AWS, GCP, Kubernetes, Terraform, Ansible, CI/CD, IaC, Docker, GitHub, Hybrid Cloud Solutions"
   - "Service-management heritage: ITSM, AMS, ServiceNow, SIAM, AIOps, intelligent ticket analysis - the operations depth the AI work builds on"
 
 highlights:
-  - "Built and run a self-hosted multi-agent stack on my own NAS: a containerised agent runtime, a custom MCP server exposing 20+ tools, and a daily autonomous intelligence-brief agent with a multi-source ingest pipeline. In real production use, not a weekend prototype."
+  - "Built and run my own AI infrastructure on a NAS at home: a custom MCP server exposing 20+ tools with hybrid search (meaning plus keywords, re-ranked) over my knowledge base, and four ingest pipelines feeding a daily intelligence-brief agent. In daily production use, not a weekend prototype."
   - "Delivered production multi-agent solutions for enterprise clients, including an intelligent ticket-analysis system built from multiple specialist agents (a Claude-native orchestrator with domain-specific analysis packs), with a strict data-handling boundary and automated report generation."
   - "Shaped enterprise transformation solutions across banking, insurance, energy, manufacturing, life sciences, and private equity, with deal values in the $25-50M range."
-  - "Fine-tuned small language models end to end on my own RTX 4070 (QLoRA, axolotl, dataset curation through to inference and adapter merge), to build real depth in the training stack, and am now extending it with Ralph-style agent loops on targeted use cases."
+  - "Learning the model-training side hands-on: one QLoRA run on a 360M-parameter model on my RTX 4070 with axolotl, from a small dataset through training to inference. Next I'm preparing to train a small plain-language rewriter on a Mac with MLX; the test set and a measured baseline are ready, the training run is not done yet."
   - "Cut infrastructure cost by around 25% and deployment time by roughly 70% on a cloud automation programme using IaC, CI/CD, and platform engineering."
   - "Led private cloud architecture for a major UK bank under strict regulatory and security constraints, reaching 99.9% uptime across a two-year on-site engagement."
 
@@ -51,7 +52,9 @@ experience:
       commercials underneath. Clients run across automotive financial services, insurance and
       reinsurance, banking, private equity, energy, life sciences, and beverage manufacturing.
     bullets:
-      - "Designed and delivered agentic AI solutions for client engagements (client-anonymized): a multi-agent ticket-analysis system that scores operational tickets for automation potential, built as a Claude-native orchestrator with specialist scoring, synthesis and proposal agents and swappable domain packs (end-user computing, application development, cloud infrastructure), behind a strict data-handling boundary; plus an agentic bid-and-pursuit workspace that runs the whole solicitation lifecycle: requirement intake and a compliance matrix, win-theme development, evidence-grounded drafting from a curated knowledge base, red-team evaluator review, and the final response pack, covering both inbound RFPs/RFIs and proactive renewals and expansions. Earlier iterations ran on Copilot Studio and Power Automate."
+      - "Designed and delivered a multi-agent ticket-analysis system for client engagements (clients not named). It scores operational tickets for automation potential: a Claude-native orchestrator with specialist scoring, synthesis and proposal agents, swappable domain packs (end-user computing, application development, cloud infrastructure), and a strict data-handling boundary. The first versions ran on Copilot Studio and Power Automate."
+      - "Built an agentic bid-and-pursuit workspace that covers the whole response: requirement intake and a compliance matrix, win themes, drafting grounded in a curated evidence base, a red-team review by simulated evaluators, and the final pack. It handles inbound RFPs and RFIs as well as renewals and expansions we start ourselves."
+      - "Packaged both, with tools for spreadsheet analysis, deck design and a first-time-reader review of drafts, as versioned Claude Code plugins, built so colleagues can use them too."
       - "Designed enterprise managed-services and application-support solutions covering AMS, ITSM, platform management, service lifecycle, modernisation, and governance."
       - "Contributed to GCC/BOT and vendor-consolidation models, working across service-tower design, hub strategy, and transition planning."
       - "Built solution narratives and reference architectures for ServiceNow-centric service management, SIAM, DevSecOps, cloud operations and others."
@@ -80,16 +83,17 @@ experience:
 independent:
   intro: Personal work, built and run on my own infrastructure. Where I keep my hands in the actual engineering.
   items:
-    - "Self-hosted agent runtime: a containerised harness on my NAS that hosts autonomous agents, fronted by TLS and auth, with a Telegram channel and scheduled jobs. I own it end to end: Docker, networking, reliability."
-    - "Custom MCP server (access to my digital brain): an MCP server I wrote that exposes 20+ tools over my knowledge base (search, read and write, task capture, hygiene, tiered session-context priming), reachable over a Cloudflare tunnel and consumed by several agents and web LLM connectors."
+    - "Self-hosted platform: Docker on my NAS running the MCP server, the search engine, four ingest pipelines and scheduled jobs, behind TLS and auth, with secrets in 1Password. The same NAS runs central logs and metrics for my home network and home automation (Vector, VictoriaLogs, InfluxDB, Grafana). From May to July 2026 it also hosted a Telegram chat agent, which I switched off when I found I was barely using it. I own all of it: Docker, networking, security, reliability."
+    - "Custom MCP server (access to my digital brain): an MCP server I wrote that exposes 20+ tools over my knowledge base (hybrid search that blends meaning and keywords with a re-ranker, reading and writing notes, task capture, note clean-up checks, and loading the right context at the start of each agent session), reachable over a Cloudflare tunnel and used daily by several agents and web LLM connectors. The search engine is my own tuned fork of an open-source Markdown notes server."
     - "Autonomous daily intelligence brief: an agent that ingests across four dedicated pipelines (video transcripts, social posts, newsletters, news feeds) plus other LLM passes, then tiers sources, detects convergence, gates on freshness, and routes work across cheaper and stronger models to keep cost sane. Effectively a small one-person AI product providing intelligent news gathering."
     - "Multi-agent reasoning pipelines: parallel reconnaissance agents for research, and a gated strategy pipeline that runs an adversarial critic against a hypothesis and labels each claim with a confidence level."
-    - "Model fine-tuning: QLoRA fine-tuning of small language models on my RTX 4070 in WSL using axolotl, dataset curation to JSONL, preprocessing, training, inference, adapter merge, and eval. Ongoing and deliberately hands-on. Next planned step is to apply Ralph Loops to these processes for targeted use cases."
-    - "On-device RAG engine: a fully local file-search and retrieval system for my Mac, no cloud calls. A lean custom engine over SQLite with combined vector and full-text search (sqlite-vec and FTS5) and small local models running on Apple Metal. Designed end to end and building it out."
-    - "Self-improving tooling: a library of 30+ skills and agents with usage telemetry and an automated review loop that flags what to improve, actively nudging me to review when needed."
+    - "Unattended overnight agent runs: a harness that works through a queue of tasks while I sleep. It keeps a durable task ledger, pauses when a subscription usage limit is hit and resumes after it resets, and uses Codex as a worker with Claude checking each result. It runs on flat-rate subscriptions only, with zero metered API spend. Its runs have produced, among others, a 16-part research study on on-device search."
+    - "Model routing, and what measuring it taught me: I built a harness to send each task to the cheapest model that could do it and to hand coding work to Codex, with 394 tests. A month of my own use, 49,603 turns, showed it had not changed a single dispatch: the usage gate never came near firing and the cheap-model path was never switched on. The same audit, judged blind by a second model, found the biggest model oversized on many small tasks and worth its cost on the token-heavy ones."
+    - "Model fine-tuning, a learning track: one QLoRA run with axolotl on my RTX 4070 (a 360M-parameter model, a small hand-made dataset, through training to inference) to learn how the loop works. Next I want to train a small plain-language rewriter for my own writing on a Mac with MLX. The test set, checks and baseline are ready; the training run is still ahead."
+    - "Personal agent tooling: about 30 skills and 14 agents in five plugins, separate from the work toolkit, that run from Claude Code, Codex and Grok. Usage telemetry shows what gets used, a blind trigger test reruns whenever a skill's description changes, and a review backlog tells me what to fix next. Before I act on a plan, a second model reviews it (Codex, plus Grok for big decisions)."
 
 tech:
-  AI and LLM: ["AI agents", "agentic systems", "multi-agent orchestration", "MCP (Model Context Protocol)", "RAG", "prompt engineering", "evals", "Anthropic Claude", "fine-tuning (LoRA, QLoRA)", "axolotl", "Ralph loop", "Copilot Studio", "Power Automate", "AIOps"]
+  AI and LLM: ["AI agents", "agentic systems", "multi-agent orchestration", "MCP (Model Context Protocol)", "RAG", "prompt engineering", "evals", "Anthropic Claude", "fine-tuning (LoRA, QLoRA)", "axolotl", "MLX", "hybrid search and re-ranking", "Claude Code (skills, hooks, plugins)", "OpenAI Codex", "Copilot Studio", "Power Automate", "AIOps"]
   Cloud and infra: ["Azure", "AWS", "GCP", "private and hybrid cloud", "Kubernetes", "Docker", "VMware Tanzu", "Terraform", "Ansible", "HashiCorp Vault", "CI/CD", "GitOps", "Cloudflare", "Tailscale", "nginx", "self-hosting"]
   Languages: ["Python", "Bash", "SQL", "Go (learning)", "C/C++ and Perl background"]
   Service management: ["ITSM", "SIAM", "AMS", "ServiceNow", "DevSecOps", "service lifecycle", "L1-L3 operating models"]
@@ -111,7 +115,7 @@ languages:
   - English (advanced)
   - Romanian (native)
 
-currently_building: "A self-hosted multi-agent stack, fine-tuning small language models on my own GPU, and applying Ralph-style agent loops to targeted use cases."
+currently_building: "My next fine-tuning project (a plain-language rewriter, as a learning exercise), unattended overnight agent runs, and measuring which model each task actually needs."
 
 # Cloudflare Web Analytics beacon token. PUBLIC by design (it sits in the page HTML), safe in this repo.
 # Get it: Cloudflare dashboard -> Analytics & Logs -> Web Analytics -> Add a site (cv.oteelab.org) -> copy the token.
@@ -127,11 +131,11 @@ linkedin:
 
     By day I shape large transformation deals (often $25-50M) for banks, insurers, energy, manufacturing and life-sciences clients, owning the design from operating model through to architecture and commercials.
 
-    The less common part at my level: I build the AI too. I run a self-hosted multi-agent stack on a NAS in my house. I wrote a custom MCP (Model Context Protocol) server that exposes 20+ tools over my own knowledge base, and several agents plus web LLM connectors use it daily. One of them reads video, social, newsletters and news every morning, tiers the sources, spots convergence, and routes work across cheaper and stronger models to keep cost down. It's basically a tiny one-person AI product.
+    The less common part at my level: I build the AI too. I run my own AI infrastructure on a NAS in my house. I wrote a custom MCP (Model Context Protocol) server that exposes 20+ tools over my own knowledge base, and several agents plus web LLM connectors use it daily. One of them reads video, social, newsletters and news every morning, tiers the sources, spots convergence, and routes work across cheaper and stronger models to keep cost down. It's basically a tiny one-person AI product.
 
-    That instinct shows up at work too: I've delivered production multi-agent solutions for enterprise clients on Copilot Studio and Power Automate, including a ticket-analysis system built from multiple specialist agents behind a strict data boundary.
+    That instinct shows up at work too. I've delivered production multi-agent solutions for enterprise clients, including a ticket-analysis system built from specialist agents behind a strict data boundary. The tools I build for deal work ship as Claude Code plugins, versioned and released like a product.
 
-    I also fine-tune small language models on a single GPU (QLoRA, axolotl, the full loop from dataset to eval), now extending it with Ralph-style agent loops, because I'd rather understand the stack down to the weights than only from the API.
+    I'm also learning the training side by doing it: one small fine-tuning run on a single GPU so far, and the next one being prepared on a Mac, because I'd rather understand the stack down to the weights than only from the API. When I have a long research job, an agent harness works through it overnight while I sleep.
 
     If you're building agentic AI and want someone who can both talk to a CIO and open the editor, let's talk.
 
